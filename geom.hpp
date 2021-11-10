@@ -40,7 +40,9 @@ struct Line {
     bool parallel(const Line& other) const {
         if(A == other.A){
             if(B == other.B){
+                if(C!=other.C){
                 return true;
+                }
             }
         }
         
