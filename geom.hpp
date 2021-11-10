@@ -38,7 +38,13 @@ struct Line {
     }
 
     bool parallel(const Line& other) const {
-        return true;
+        if(A == other.A){
+            if(B == other.B){
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     Line parallel(const Point& p) {
