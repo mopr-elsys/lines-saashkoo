@@ -34,9 +34,9 @@ struct Line {
     Line(double A = 0, double B = 0, double C = 0) : A(A), B(B), C(C) {}
 
     Line(const Point& p1, const Point& p2) {
-        C = (p2.y - p1.y)/(p2.x - p1.x); 
-        A = p1.y - p1.x*((p2.y - p1.y)/(p2.x - p1.x));
-        B = -(A+C); 
+        B = (p2.y - p1.y)/(p2.x - p1.x); 
+        C = p1.y - p1.x*((p2.y - p1.y)/(p2.x - p1.x));
+        A = -(A+C); 
         
     }
 
