@@ -34,9 +34,23 @@ struct Line {
     Line(double A = 0, double B = 0, double C = 0) : A(A), B(B), C(C) {}
 
     Line(const Point& p1, const Point& p2) {
-        A = (p1.y - p2.y)/(p1.x - p2.x); 
-        C = p1.y - p1.x*((p1.y - p2.y)/(p1.x - p2.x));
-        B = 0-(A+C); 
+        double x1 = p1.x, y1 = p1.y;
+        double x2 = p2.x, y2 = p2.y;
+
+        A = y1 - y2;
+        B = x2 - x1;
+        if(x1>=0)
+        {
+            C = A * (x1) - B * (y1);
+        }
+        else
+        {
+            C = A * (x2) - B * (y2);
+        }
+        if(B == 0)
+        {
+            C = -C;
+        }
     }
 
     bool parallel(const Line& other) const {
